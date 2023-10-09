@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+
+    <string name="genre_fragment_label">Genre Fragment</string>
+    <string name="movie_fragment_label">Movie Fragment</string>
+    <string name="detail_fragment_label">Detail Fragment</string>
+    <string name="detail_video_label">Trailers</string>
+    <string name="detail_review_label">Review</string>
+    <string name="detail_overview_label">Overview</string>
+    <string name="empty">Data tidak ada</string>
+    <string name="error">Sedang dalam masalah</string>
+    <string name="genre_movie">Genre Movie</string>
+    <string name="no_internet">No Internet</string>
+    <string name="tap_to_reload">Tap to reload</string>
+</resources>

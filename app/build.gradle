@@ -1,0 +1,89 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+}
+apply from: "$rootDir/dependencies.gradle"
+
+android {
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.movieapp"
+        minSdk min_sdk_version
+        targetSdk target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+}
+
+kapt {
+    generateStubs = true
+}
+
+dependencies {
+
+    def appDependencies = rootProject.ext.appDependencies
+    def appTestDependencies = rootProject.ext.appTestDependencies
+
+    implementation project(':data')
+    implementation project(':domain')
+
+    implementation appDependencies.kotlin
+    implementation appDependencies.kotlinKtx
+    implementation appDependencies.multidex
+
+    implementation appDependencies.javaxAnnotation
+    implementation appDependencies.javaxInject
+    implementation appDependencies.rxKotlin
+    implementation appDependencies.rxAndroid
+
+    implementation appDependencies.coroutines
+    implementation appDependencies.coroutinesAndroid
+
+    implementation appDependencies.koinAndroid
+
+    implementation appDependencies.appCompat
+    implementation appDependencies.material
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.glide
+    implementation appDependencies.palette
+    implementation appDependencies.threeTen
+    implementation appDependencies.swipeRefreshLayout
+    implementation appDependencies.timber
+    implementation domainDependencies.gson
+
+    implementation appDependencies.navigationFragment
+    implementation appDependencies.navigationUi
+    implementation appDependencies.paging
+
+    testImplementation appTestDependencies.jUnit
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+
+}
